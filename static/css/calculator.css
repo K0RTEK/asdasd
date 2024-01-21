@@ -1,0 +1,44 @@
+.columns-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.column {
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    box-sizing: border-box;
+    border: 3px solid #007bff;
+    border-radius: 10px;
+}
+
+#calculator_container {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#calculation {
+    border-left: 1px solid lightgray;
+    padding: 20px;
+}
+
+
+#label_text {
+    font-weight: 400;
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+#info_text {
+    margin-top: 20px;
+}
+
+#text_head {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+#text_bottom {
+    font-size: 15px;
+}

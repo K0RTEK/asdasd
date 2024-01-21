@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/calculator.css' %}">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet"/>
+    <title>Калькулятор стоимости перевозки</title>
+</head>
+<body>
+{% include 'main.html' %}
+
+<div class="container" id="calculator_container">
+    <div class="row">
+        <div class="col-6 col-md-4" id="info_text">
+            <div class="container">
+                <h1 class="lead" id="text_head">
+                    Расчет стоимости и экологичности грузовых перевозок
+                </h1>
+                <h1 class="lead" id="text_bottom">
+                    Введите данные о маршруте перевозки и параметрах груза, чтобы
+                    рассчитать предварительную стоимость заказа.
+                </h1>
+            </div>
+        </div>
+        <div class="col-6 col-md-8" id="calculation">
+            <h1 class="lead" id="label_text">
+                Маршрут
+            </h1>
+            <div class="rout">
+                <div class="row">
+                    <div class="col">
+                        <label for="pointA">Откуда</label>
+                        <input
+                                type="text"
+                                class="form-control address"
+                                id="pointA"
+                                placeholder="Введите адрес"
+                                value="г Москва"
+                        />
+                    </div>
+                    <div class="point-image">
+                        <img
+                                src="{% static 'images/reshot-icon-arrow-exchange-VBNJM76XY8.svg' %}"
+                                alt=""
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="pointB">Куда</label>
+                        <input
+                                type="text"
+                                class="form-control address"
+                                id="pointB"
+                                placeholder="Введите адрес"
+                                value="г Воронеж"
+                        />
+                    </div>
+                </div>
+                <div class="specifications">
+                    <h1 class="lead" id="label_text">
+                        Параметры
+                    </h1>
+                    <div class="form-group">
+                        <label for="tariff">Наименование груза</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="tariff"
+                                placeholder="Введите тариф"
+                                value="18"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="tariff">Тип упаковки</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="tariff"
+                                placeholder="Введите тариф"
+                                value="18"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="tariff">Вес груза (кг)</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="tariff"
+                                placeholder="Введите тариф"
+                                value="18"
+                                name="weight"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="tariff">Объем груза (м3)</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="tariff"
+                                placeholder="Введите тариф"
+                                value="18"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="cargoQuantity">Стоимость 1 километра:</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="cargoQuantity"
+                                placeholder="Введите количество"
+                                value="50"
+                                name="kilometer"
+                        />
+                    </div>
+                    <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="calculateButton"
+                    >
+                        Рассчитать
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<form action="{% url 'home' %}" method="GET" id="send_email_form">
+    <div class="mt-4" id="send_email"></div>
+</form>
+
+<div class="columns-container" id="result_calc"></div>
+<div class="mt-4" id="result_map"></div>
+<h1></h1>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=e1e172e2-6d5d-429d-aadb-250ef0d6c339&lang=ru_RU"
+        type="text/javascript"></script>
+
+
+<script src="{% static 'js/search.js' %}"></script>
+<script src="{% static 'js/сalculator.js' %}"></script>
+<script src="{% static 'js/map.js' %}"></script>
+
+</body>
+</html>
